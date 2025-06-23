@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const db = require('./db'); // make sure this connects to MongoDB
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 // Use JSON parser middleware
 app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000;
 
 // Import Mongoose models
 //const MenuItem = require('./models/MenuItem');
@@ -26,8 +28,10 @@ app.get('/', function (req, res) {
 })
 
 
+
+
 // Start server
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log('listening on port 3000');
 });
  
